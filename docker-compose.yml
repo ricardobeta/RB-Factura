@@ -1,0 +1,17 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    env_file:
+      - local.env
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/script.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

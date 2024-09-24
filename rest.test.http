@@ -1,0 +1,66 @@
+### Crear Oficial
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+    "userName": "admuser",
+    "password": "admuser"
+}
+
+
+### Login
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+    "userName": "admuser",
+    "password": "admuser"
+}
+
+
+### Products
+GET http://localhost:8080/product/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG11c2VyIiwiZXhwIjoxNzI3MjMyODQxfQ.TUgMUV77zGsWIf38xOIYhmCy_3qu0RNVGxrliTZqfQo
+
+
+### Invoice
+POST http://localhost:8080/invoice
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG11c2VyIiwiZXhwIjoxNzI3MjMyODQxfQ.TUgMUV77zGsWIf38xOIYhmCy_3qu0RNVGxrliTZqfQo
+
+{
+  "date": "2024-09-23",
+  "customer": {
+    "name": "Juan Pérez",
+    "identification": "1726079625"
+  },
+  "subtotal": 100.00,
+  "iva": 21.00,
+  "total": 121.00,
+  "invoiceDetails": [
+    {
+      "product": {
+        "id": 1
+      },
+      "quantity": 2
+    },
+    {
+      "product": {
+        "id": 2
+      },
+      "quantity": 1
+    }
+  ]
+}
+
+
+### REPORTE
+GET http://localhost:8080/invoice/9/report
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG11c2VyIiwiZXhwIjoxNzI3MjMyODQxfQ.TUgMUV77zGsWIf38xOIYhmCy_3qu0RNVGxrliTZqfQo
+
+
+### LISTADO de facturas
+GET http://localhost:8080/invoice
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG11c2VyIiwiZXhwIjoxNzI3MjMyODQxfQ.TUgMUV77zGsWIf38xOIYhmCy_3qu0RNVGxrliTZqfQo
+
